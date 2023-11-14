@@ -1,3 +1,9 @@
+import { join } from 'path';
+const androidAppPath = join(
+    process.cwd(),
+    "utils/apk/demoapp.apk"
+  );
+
 export const config = {
     //
     // ====================
@@ -55,9 +61,12 @@ export const config = {
         // capabilities for local Appium web tests on an Android Emulator
         platformName: 'Android',
         browserName: 'Chrome',
-        'appium:deviceName': 'Android GoogleAPI Emulator',
-        'appium:platformVersion': '12.0',
-        'appium:automationName': 'UiAutomator2'
+        'appium:deviceName': 'Galaxy A72',
+        'appium:platformVersion': '13.0',
+        'appium:automationName': 'UiAutomator2',
+        'appium:app': androidAppPath ,
+        'appium:chromedriverExecutableDir' :'D:/Proyectos/ArquitecturaWebdriverio/utils/chromedriver',
+        'appium:appActivity': '.MainActivity'
     }],
 
     //
@@ -130,7 +139,11 @@ export const config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: [['allure', {outputDir: 'allure-results'}]],
+    reporters: [['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: true,
+    }]],
 
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {

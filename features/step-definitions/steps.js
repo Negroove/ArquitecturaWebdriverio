@@ -1,23 +1,15 @@
-import { Given, When, Then } from '@wdio/cucumber-framework';
-import { expect, $ } from '@wdio/globals'
+// Importa las funciones necesarias de Cucumber y WebdriverIO
+import { Given, Then } from '@wdio/cucumber-framework';
+import AppPage from '../pageobjects/AppPage.js';
 
-import LoginPage from '../pageobjects/login.page.js';
-import SecurePage from '../pageobjects/secure.page.js';
-
-const pages = {
-    login: LoginPage
-}
-
-Given(/^I am on the (\w+) page$/, async (page) => {
-    await pages[page].open()
+// Step Definition para abrir la aplicación
+Given(/^I open the application$/, async () => {
+    await AppPage.open();
 });
 
-When(/^I login with (\w+) and (.+)$/, async (username, password) => {
-    await LoginPage.login(username, password)
+// Nuevo paso para verificar que la aplicación se está ejecutando
+Then(/^I should see the application running$/, async () => {
+    // Puedes implementar aquí la lógica para verificar que la aplicación está en ejecución
+    console.log('Verifying that the application is running...');
+     await expect(AppPage.appRunningIndicator).toBeDisplayed();
 });
-
-Then(/^I should see a flash message saying (.*)$/, async (message) => {
-    await expect(SecurePage.flashAlert).toBeExisting();
-    await expect(SecurePage.flashAlert).toHaveTextContaining(message);
-});
-
