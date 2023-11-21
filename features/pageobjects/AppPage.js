@@ -9,7 +9,7 @@ class AppPage {
         // Implementa la lógica para abrir o levantar la aplicación (APK)
         console.log('Opening the application (APK)...');
         // Puedes agregar aquí comandos específicos para abrir la APK
-        // Ejemplo: await driver.execute('adb shell am start -n com.example.myapp/.MainActivity');
+        await driver.launchApp()
     }
 }
 

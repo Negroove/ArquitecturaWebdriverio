@@ -64,9 +64,12 @@ export const config = {
         'appium:deviceName': 'Galaxy A72',
         'appium:platformVersion': '13.0',
         'appium:automationName': 'UiAutomator2',
-        'appium:app': androidAppPath ,
+        'appium:app': 'D:\\Proyectos\\ArquitecturaWebdriverio\\utils\\apk\\demoapp.apk' ,
         'appium:chromedriverExecutableDir' :'D:/Proyectos/ArquitecturaWebdriverio/utils/chromedriver',
-        'appium:appActivity': '.MainActivity'
+        'appium:appActivity': 'com.wdiodemoapp.SplashActivity',
+        'appium:appPackeage': 'com.wdiodemoapp',
+        "appium:appWaitForLaunch": false
+
     }],
 
     //
