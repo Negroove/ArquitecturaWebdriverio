@@ -9,7 +9,7 @@ class AppPage {
         // Implementa la lógica para abrir o levantar la aplicación (APK)
         console.log('Opening the application (APK)...');
         // Puedes agregar aquí comandos específicos para abrir la APK
-        await driver.launchApp()
+        await driver.execute('mobile: activateApp', { appId: 'com.wdiodemoapp' });
     }
 }
 
